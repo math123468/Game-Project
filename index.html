@@ -2,16 +2,25 @@
 	<head>
 		<title>Game Project</title>
 		<style>
-			td {
+			td{
 				width:75px;
 				height:75px;
 				border:1px solid black;
 			};
+			.player{
+				height: 50px;
+  				width: 50px;
+  				background-color: white;
+  				border-radius: 50%;
+				display: inline-block;
+			}
 		</style>
 	</head>
 	<body>
 		<script src = 'main.js'></script>
-		<table id = 'board' style = 'position:absolute;left:200px'>
+		<div style = 'width:50px;height:100px;font-size:5em' id = 'num1'>0</div>
+		<div style = 'width:50px;height:100px;font-size:5em' id = 'num2'>0</div>
+		<table id = 'board' style = 'position:absolute;left:275px'>
 			<tr id = '0'>
 				<td id = '00'></td>
 				<td id = '01'></td>
@@ -121,7 +130,7 @@
 				<td id = '89'></td>
 			</tr>
 			<tr id = '9'>
-				<td id = '90' style = 'background-color:green'></td>
+				<td id = '90' style = 'background-color:green'><div class='player'></div></td>
 				<td id = '91'></td>
 				<td id = '92'></td>
 				<td id = '93'></td>
