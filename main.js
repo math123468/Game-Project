@@ -2,8 +2,8 @@ var loc1 = [0,0]
 var loc2 = [0,0]
 var player = 1
 function roll(times) {
-	var num1 = Math.floor(Math.random()*5))
-	var num2 = Math.floor(Math.random()*5))
+	var num1 = Math.floor(Math.random()*5)
+	var num2 = Math.floor(Math.random()*5)
 	document.getElementById('num1').innerHTML = num1
 	document.getElementById('num2').innerHTML = num2
 	if(times == 0) return [num1,num2]
