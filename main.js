@@ -32,12 +32,12 @@ function moveTo(square, override = false) {
 	if(document.getElementById(square).style.backgroundColor = 'black' || override) {
 		unhighlightAll()
 		if(player == 1) {
-			loc1[0] = square[0].toString()
-			loc1[1] = square[1].toString()
+			loc1[0] = square.toString()[0]
+			loc1[1] = square.toString()[1]
 		}
 		else if(player == 2) {
-			loc2[0] = square[0].toString()
-			loc2[1] = square[1].toString()
+			loc2[0] = square.toString()[0]
+			loc2[1] = square.toString()[1]
 		}
 	}
 }
