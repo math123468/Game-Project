@@ -30,7 +30,7 @@ function roll(times) {
 function setUp() {
 	for(i=0;i<10;i++) {
 		for(j=0;j<10;j++) {
-			document.getElementById(i.toString() + j).onclick = function(arg) {return function() {moveTo(arg);}}(10*i+j);
+			document.getElementById(i.toString() + j).onclick = function(arg) {return function() {moveTo(arg);}}(parseInt(i.toString()+j));
 		}
 	}
 }
@@ -42,6 +42,7 @@ function moveTo(square, override = false) {
 				var answer = prompt(problems[i][num])
 				if(answer != solutions[i][num]) {
 					alert('Sorry! The correct answer was ' + solutions[i][num])
+					unhighlightAll()
 					nextMove()
 					return
 				}
@@ -52,14 +53,20 @@ function moveTo(square, override = false) {
 			alert('Player ' + player + 'has won!')
 		}
 		if(player == 1) {
-			if(square.toString() == loc1[1] + loc1[0]) nextMove()
+			if(square.toString() == loc1[1] + loc1[0]) {
+				nextMove()
+				return
+			}
 			loc1[0] = square.toString()[1]
 			loc1[1] = square.toString()[0]
 			document.getElementById(loc1[1] + loc1[0]).appendChild(document.getElementById('player1'))
 			nextMove()
 		}
 		else if(player == 2) {
-			if(square.toString() == loc2[1] + loc2[0]) nextMove()
+			if(square.toString() == loc2[1] + loc2[0]) {
+				nextMove()
+				return
+			}
 			loc2[0] = square.toString()[1]
 			loc2[1] = square.toString()[0]
 			document.getElementById(loc2[1] + loc2[0]).appendChild(document.getElementById('player2'))
