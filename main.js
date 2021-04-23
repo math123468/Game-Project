@@ -96,13 +96,13 @@ function unhighlightAll() {
 				document.getElementById(i.toString() + j).style.backgroundColor = 'red'
 			}
 			else if(problemSquares[0].includes(10 * i+j)) {
-				document.getElementById(i.toString() + j).style.backgeoundColor = 'lawngreen'
+				document.getElementById(i.toString() + j).style.backgroundColor = 'lawngreen'
 			}
 			else if(problemSquares[1].includes(10 * i+j)) {
-				document.getElementById(i.toString() + j).style.backgeoundColor = 'yellow'
+				document.getElementById(i.toString() + j).style.backgroundColor = 'yellow'
 			}
 			else if(problemSquares[2].includes(10 * i+j)) {
-				document.getElementById(i.toString() + j).style.backgeoundColor = 'orange'
+				document.getElementById(i.toString() + j).style.backgroundColor = 'orange'
 			}
 			else {
 				document.getElementById(i.toString() + j).style.backgroundColor = 'white'
