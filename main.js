@@ -92,16 +92,16 @@ function unhighlightAll() {
 			if(i==0 && j==0) {
 				document.getElementById(i.toString() + j).style.backgroundColor = 'green'
 			}
-			else if(problemSquares[3].includes(i.toString() + j)) {
+			else if(problemSquares[3].includes(10 * i+j)) {
 				document.getElementById(i.toString() + j).style.backgroundColor = 'red'
 			}
-			else if(problemSquares[0].includes(i.toString()+j)) {
+			else if(problemSquares[0].includes(10 * i+j)) {
 				document.getElementById(i.toString() + j).style.backgeoundColor = 'lawngreen'
 			}
-			else if(problemSquares[1].includes(i.toString()+j)) {
+			else if(problemSquares[1].includes(10 * i+j)) {
 				document.getElementById(i.toString() + j).style.backgeoundColor = 'yellow'
 			}
-			else if(problemSquares[2].includes(i.toString()+j)) {
+			else if(problemSquares[2].includes(10 * i+j)) {
 				document.getElementById(i.toString() + j).style.backgeoundColor = 'orange'
 			}
 			else {
