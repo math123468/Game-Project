@@ -1,7 +1,9 @@
 var loc1 = [0,0]
 var loc2 = [0,0]
-var player = 1
-var nextVector = [0,0]
+var player = 2
+var vector = [0,0]
+var gamePlaying = false
+var readyForMove = false
 function roll(times) {
 	var num1 = Math.floor(Math.random()*5)
 	var num2 = Math.floor(Math.random()*5)
@@ -9,6 +11,7 @@ function roll(times) {
 	document.getElementById('num2').innerHTML = num2
 	if(times == 0) {
 		vector = [num1,num2]
+		move()
 		return
 	}
 	var delay
@@ -34,15 +37,17 @@ function moveTo(square, override = false) {
 		if(player == 1) {
 			loc1[0] = square.toString()[0]
 			loc1[1] = square.toString()[1]
+			document.getElementById('player1').appendChild(document.getElementById(loc1[0] + loc1[1]))
 		}
 		else if(player == 2) {
 			loc2[0] = square.toString()[0]
 			loc2[1] = square.toString()[1]
+			document.getElementById('player2').appendChild(document.getElementById(loc2[0] + loc2[1]))
 		}
+		nextMove()
 	}
 }
 function move() {
-	roll(100)
 	var currentLoc
 	if(player == 1) currentLoc = loc1
 	else currentLoc = loc2
@@ -77,13 +82,20 @@ function unhighlightAll() {
 		}
 	}
 }
+function nextMove(){
+	player = (1 + (player == 1))
+	alert('It is now player' + player + '\'s turn.')
+	roll(100)
+}
 function setup() {
 	unhighlightAll()
 	loc1 = [0,0]
 	loc2 = [0,0]
-	player = 2
-	moveTo('00')
 	player = 1
 	moveTo('00')
+	player = 2
+	moveTo('00')
 	setUp()
+	gamePlaying = true
+	nextMove()
 }
