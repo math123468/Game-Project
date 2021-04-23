@@ -38,13 +38,13 @@ function moveTo(square, override = false) {
 			if(square.toString() == loc1[0] + loc1[1]) return
 			loc1[0] = square.toString()[0]
 			loc1[1] = square.toString()[1]
-			document.getElementById('player1').appendChild(document.getElementById(loc1[0] + loc1[1]))
+			document.getElementById(loc1[0] + loc1[1]).appendChild(document.getElementById('player1'))
 		}
 		else if(player == 2) {
 			if(square.toString() == loc2[0] + loc2[1]) return
 			loc2[0] = square.toString()[0]
 			loc2[1] = square.toString()[1]
-			document.getElementById('player2').appendChild(document.getElementById(loc2[0] + loc2[1]))
+			document.getElementById(loc2[0] + loc2[1]).appendChild(document.getElementById('player2'))
 		}
 		nextMove()
 	}
