@@ -37,7 +37,7 @@ function setUp() {
 function moveTo(square, override = false) {
 	if(document.getElementById(square).style.backgroundColor != 'white' || override) {
 		for(i=0;i<4;i++) {
-			if(problemSquares[i].contains(square)) {
+			if(problemSquares[i].includes(square)) {
 				var num = Math.floor(Math.random()*(problems[i].length))
 				var answer = prompt(problems[i][num])
 				if(answer != solutions[i][num]) {
