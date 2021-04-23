@@ -73,8 +73,10 @@ function moveTo(square, override = false) {
 			}
 		}
 		unhighlightAll()
-		if(problemSquares[3].includes(square)) {
+		if(problemSquares[3].includes(parseInt(square))) {
 			alert('Player ' + player + 'has won!')
+			alert('Refresh the page to play again!')
+			return
 		}
 		if(player == 1) {
 			if(square == loc1[1] + loc1[0]) {
