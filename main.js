@@ -89,12 +89,6 @@ function nextMove(){
 }
 function setup() {
 	unhighlightAll()
-	loc1 = [0,0]
-	loc2 = [0,0]
-	player = 1
-	moveTo('00')
-	player = 2
-	moveTo('00')
 	setUp()
 	gamePlaying = true
 	nextMove()
