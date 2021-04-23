@@ -42,13 +42,13 @@ function roll(times) {
 		return
 	}
 	var delay
-	if(times > 50) delay = 37.5
-	else if(times > 20) delay = 75
-	else if(times > 10) delay = 150
-	else if(times > 5) delay = 187.5
-	else if(times > 2) delay = 262.5
-	else if(times == 2) delay = 375
-	else if(times == 1) delay = 600
+	if(times > 50) delay = 20
+	else if(times > 20) delay = 40
+	else if(times > 10) delay = 80
+	else if(times > 5) delay = 100
+	else if(times > 2) delay = 140
+	else if(times == 2) delay = 200
+	else if(times == 1) delay = 320
 	setTimeout(function() {roll(times - 1)}, delay)
 }
 function setUp() {
