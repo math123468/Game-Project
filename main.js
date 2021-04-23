@@ -1,5 +1,5 @@
-var loc1 = [0,0]
-var loc2 = [0,0]
+var loc1 = ['0','0']
+var loc2 = ['0','0']
 var player = 2
 var vector = [0,0]
 var gamePlaying = false
@@ -35,7 +35,7 @@ function setUp() {
 	}
 }
 function moveTo(square, override = false) {
-	if(document.getElementById(square).style.backgroundColor != 'white' || override) {
+	if(document.getElementById(square).style.backgroundColor == 'black' || override) {
 		for(i=0;i<4;i++) {
 			if(problemSquares[i].includes(square)) {
 				var num = Math.floor(Math.random()*(problems[i].length))
@@ -43,6 +43,7 @@ function moveTo(square, override = false) {
 				if(answer != solutions[i][num]) {
 					alert('Sorry! The correct answer was ' + solutions[i][num])
 					nextMove()
+					return
 				}
 			}
 		}
