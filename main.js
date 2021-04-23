@@ -6,7 +6,7 @@ var gamePlaying = false
 var readyForMove = false
 var problems = [['How many columns are in a 3x5 matrix?'],['What is [1 3 5;2 4 6] * [5 -2;-1 9;8 2]?'],['What is the inverse of [3 4;4 5]?'],['If A = LU, where A = [4 3 -5;-4 -5 7;8 6 -8] and L is [1 0 0;-1 1 0;2 -5 1], what is U?']]
 var solutions = [['5'],['[42 35;54 44]'],['[-5 4;4 -3]'],['[4 3 -5;0 -2 2;0 0 2]']]
-var problemSquares = [[36,62,59,69,68,75,40,66,81,48,91,60,94,32,20,13,26,9,49],[17,84,86,65,87,11,4,19,31,57,41,50,74,23,24],[89,98,79,88,97,44,45,54,55,85,53,38],[99]]
+var problemSquares = [[36,62,59,69,68,75,40,66,81,48,91,60,94,32,20,13,26,9,49],[17,84,86,65,87,11,4,19,31,57,41,50,74,23,24,78,87],[79,88,97,44,45,54,55,85,53,38],[99,89,98]]
 function roll(times) {
 	var num1 = Math.floor(Math.random()*5)
 	var num2 = Math.floor(Math.random()*5)
@@ -49,7 +49,7 @@ function moveTo(square, override = false) {
 			}
 		}
 		unhighlightAll()
-		if(parseInt(square) == 99) {
+		if(problemSquares[3].includes(square)) {
 			alert('Player ' + player + 'has won!')
 		}
 		if(player == 1) {
