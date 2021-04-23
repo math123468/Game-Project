@@ -4,9 +4,33 @@ var player = 2
 var vector = [0,0]
 var gamePlaying = false
 var readyForMove = false
-var problems = [['How many columns are in a 3x5 matrix?'],['What is [1 3 5;2 4 6] * [5 -2;-1 9;8 2]?'],['What is the inverse of [3 4;4 5]?'],['If A = LU, where A = [4 3 -5;-4 -5 7;8 6 -8] and L is [1 0 0;-1 1 0;2 -5 1], what is U?']]
-var solutions = [['5'],['[42 35;54 44]'],['[-5 4;4 -3]'],['[4 3 -5;0 -2 2;0 0 2]']]
+var problems = [['How many columns are in a 3x5 matrix?','How many rows are in a 3x5 matrix?','What are the dimensions of [4 5 5;2 1 9]?',
+		 'Are [3;5;1] and [-6;-10;2] linearly independent? y/n','Are [3;5;1] and [-6;-10;-2] linearly independent? y/n','Is [4 1 9 6 2;0 3 8 11 2;0 0 9 9 1] in echelon form? y/n',
+		'Is [4 1 9 6 2;0 3 8 11 2;0 1 9 9 1] in echelon form? y/n','Is [1 0 0 0 4;0 1 0 0 1;0 0 1 0 3;0 0 0 1 5] in rref? y/n',
+		'Enter the coefficient matrix for the system\nx1 + x2 + 3x3 = 5\n3x1 + 2x2 - x3 = 1\n-2x1 - x2 + 2x3 = -3',
+		'Enter the augmented matrix for the system\n4x1 - x2 + 3x3 = -7\n-3x1 - 2x2 + x3 = -1\n-2x1 + 4x2 - x3 = 4',
+		'Which of the following is not an elementary row operation:\nA: Switching two rows\nB:Adding 3 to all entries in a row\nC:Multiplying all entries in a row by 2\nD:Replacing a row with itself plus another row',
+		'T/F:All elementary row operations are reversible','T/F:Matrix multiplication is commutative','T/F:Matrix multiplication is associative',
+		 'T/F: All matrix transformations are linear','T/F: Matrix multiplication is left AND right distributive'],
+		['What is [1 3 5;2 4 6] * [5 -2;-1 9;8 2]?','Is the transformation x->[1 0;2 1]\n A:vertical shear\nB:horizontal shear\nC:vertical dilation\nD:horizontal dilation?',
+		 'Is the transformation x->[1 2;0 1]\nA:vertical shear\nB:horizontal shear\nC:vertical dilation\nD:horizontal dilation?',
+		'How many pivot positions are in the matrix [1 2 3 4 5;0 0 3 2 -1;0 0 0 0 0]?','T/F: A linear system has a unique solution iff the rightmost column of it\'s augmented matrix is not a pivot column',
+		'Are the following vectors linearly independent? [5;0;0],[7;2;-6],[9;4;-8] y/n','Are the following vectors linearly independent? [1;4;-2],[4;-1;3],[6;7;-1] y/n',
+		'Is the transformation with matrix [1 3 -2 4;-5 1 -2 2;-1 -1 -1 7] one to one? y/n','T/F: (AB)^-1 = A^-1B^-1'],
+		['What is the inverse of [3 4;4 5]?','Solve the equation [1 0 -2;-2 1 6;3 -2 -5]x = [-1;7;-3]','What is the inverse of [4 9;3 7]?',
+		 'Solve the equation [1 2 4;0 1 5;-2 -4 -3]x = [-2;2;9]','Are the following vectors linearly independent? [1;-2;0],[0;1;2],[5;-6;8],[2;-1;6] y/n',
+		 'What is the rref of [1 2 3 4;4 5 6 7;6 7 8 9]?'],
+		['If A = LU, where A = [4 3 -5;-4 -5 7;8 6 -8] and L is [1 0 0;-1 1 0;2 -5 1], what is U?','What is the inverse of [1 0 -2;-3 1 4;2 -3 4]? Use fractions',
+		'How many free variables are in the solution to [0 3 -6 6 4 -5;3 -7 8 -5 8 9;3 -9 12 -9 6 15]?']]
+var solutions = [['5','3','2x3','y','n','y','n','y','[1 1 3;3 2 -1;-2 -1 2]','[4 -1 3 -7;-3 -2 1 -1;-2 4 -1 4]','B','T','F','T','T','T'],
+		 ['[42 35;54 44]','A','B','2','F','n','y','n','n','F'],
+		 ['[-5 4;4 -3]','[3;1;2]','[7 -9;-3 4]','[0;-3;1]','n','[1 0 -1 -2;0 1 2 3;0 0 0 0]'],
+		 ['[4 3 -5;0 -2 2;0 0 2]','[8 3 1;10 4 1;7/2 3/2 1/2]','2']]
 var problemSquares = [[36,62,59,69,68,75,40,66,81,48,91,60,94,32,20,13,26,9,49],[17,84,86,65,87,11,4,19,31,57,41,50,74,23,24],[79,88,97,44,45,54,55,85,53,38,78,87],[99,89,98]]
+function testProb(i,j) {
+	alert(problems[i][j])
+	alert(solutions[i][j])
+}
 function roll(times) {
 	var num1 = Math.floor(Math.random()*5)
 	var num2 = Math.floor(Math.random()*5)
