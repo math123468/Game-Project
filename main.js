@@ -71,7 +71,7 @@ function move() {
 	var currentLoc
 	if(player == 1) currentLoc = loc1
 	else currentLoc = loc2
-	highlightMoveable(currentLoc[0],currentLoc[1],vector)
+	highlightMoveable(parseInt(currentLoc[0]),parseInt(currentLoc[1]),vector)
 }
 function highlightMoveable(x,y,vector) {
 	var left = x-vector[0]
