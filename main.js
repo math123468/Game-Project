@@ -100,6 +100,7 @@ function moveTo(square, override = false) {
 					}
 				}
 			}
+		}
 		unhighlightAll()
 		if(problemSquares[3].includes(parseInt(square))) {
 			alert('Player ' + player + 'has won!')
