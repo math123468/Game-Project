@@ -1,5 +1,6 @@
 var loc1 = ['0','0']
 var loc2 = ['0','0']
+var numPlayers = 1
 var player = 2
 var vector = [0,0]
 var gamePlaying = false
@@ -27,6 +28,15 @@ var solutions = [['5','3','2x3','y','n','y','n','y','[1 1 3;3 2 -1;-2 -1 2]','[4
 		 ['[-5 4;4 -3]','[3;1;2]','[7 -9;-3 4]','[0;-3;1]','n','[1 0 -1 -2;0 1 2 3;0 0 0 0]'],
 		 ['[4 3 -5;0 -2 2;0 0 2]','[8 3 1;10 4 1;7/2 3/2 1/2]','2']]
 var problemSquares = [[36,62,59,69,68,75,40,66,81,48,91,60,94,32,20,13,26,9,49],[17,84,86,65,11,4,19,31,57,41,50,74,23,24],[79,88,97,44,45,54,55,85,53,38,78,87],[99,89,98]]
+function show(what) {
+	document.getElementById(what).style.display = 'block'
+}
+function hide(what) {
+	document.getElementById(what).style.display = 'none'
+}
+function inline(what) {
+	document.getElementById(what).style.display = 'inline'
+}
 function testProb(i,j) {
 	alert(problems[i][j])
 	alert(solutions[i][j])
@@ -60,18 +70,36 @@ function setUp() {
 }
 function moveTo(square, override = false) {
 	if(document.getElementById(square).style.backgroundColor == 'black' || override) {
-		for(i=0;i<4;i++) {
-			if(problemSquares[i].includes(parseInt(square))) {
-				var num = Math.floor(Math.random()*(problems[i].length))
-				var answer = prompt(problems[i][num])
-				if(answer != solutions[i][num]) {
-					alert('Sorry! The correct answer was ' + solutions[i][num])
-					unhighlightAll()
-					nextMove()
-					return
+		if(player <= numPlayers) {
+			for(i=0;i<4;i++) {
+				if(problemSquares[i].includes(parseInt(square))) {
+					var num = Math.floor(Math.random()*(problems[i].length))
+					var answer = prompt(problems[i][num])
+					if(answer != solutions[i][num]) {
+						alert('Sorry! The correct answer was ' + solutions[i][num])
+						unhighlightAll()
+						nextMove()
+						return
+					}
 				}
 			}
 		}
+		else {
+			var rand = Math.floor(Math.random()*100)
+			var req
+			for(i=0;i<4;i++) {
+				if(problemSquares[i].includes(parseInt(square))) {
+					if(i == 0) req = 90
+					if(i == 1) req = 80
+					if(i == 2) req = 65
+					if(i == 3) req = 45
+					if(rand > req) {
+						unhighlightAll()
+						nextMove()
+						return
+					}
+				}
+			}
 		unhighlightAll()
 		if(problemSquares[3].includes(parseInt(square))) {
 			alert('Player ' + player + 'has won!')
@@ -105,7 +133,20 @@ function move() {
 	if(player == 1) currentLoc = loc1
 	else currentLoc = loc2
 	highlightMoveable(parseInt(currentLoc[0]),parseInt(currentLoc[1]),vector)
+	if(player > numPlayers) botMove()
 }
+function botMove() {
+	var options = []
+	for(i=1;i<10;i++) {
+		for(j=1;j<10;j++) {
+			var sq = (10 * i + j).toString
+			if(document.getElementById(sq).style.backgroundColor == 'black') {
+				options.push(sq)
+			}
+		}
+	}
+	moveTo(options[Math.floor(Math.random()*options.length)])
+}		       
 function highlightMoveable(x,y,vector) {
 	var left = x-vector[0]
 	var right = x+vector[0]
@@ -146,12 +187,24 @@ function unhighlightAll() {
 }
 function nextMove(){
 	player = (1 + (player == 1))
-	alert('It is now player' + player + '\'s turn.')
-	roll(100)
+	if(player <= numPlayers) {
+		alert('It is now player' + player + '\'s turn.')
+		roll(100)
+	}
+	else {
+		roll(100)
+	}
 }
 function setup() {
 	unhighlightAll()
 	setUp()
+}
+function start(players) {
+	hide('1player')
+	hide('2player')
+	show('dice')
+	show('board')
+	numPlayers = players
 	gamePlaying = true
 	nextMove()
 }
