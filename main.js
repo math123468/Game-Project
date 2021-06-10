@@ -146,6 +146,7 @@ function botMove() {
 			}
 		}
 	}
+	console.log(options)
 	moveTo(options[Math.floor(Math.random()*options.length)])
 }		       
 function highlightMoveable(x,y,vector) {
