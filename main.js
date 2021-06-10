@@ -140,7 +140,7 @@ function botMove() {
 	var options = []
 	for(i=1;i<10;i++) {
 		for(j=1;j<10;j++) {
-			var sq = (10 * i + j).toString
+			var sq = (10 * i + j).toString()
 			if(document.getElementById(sq).style.backgroundColor == 'black') {
 				options.push(sq)
 			}
