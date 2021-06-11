@@ -146,8 +146,31 @@ function botMove() {
 			}
 		}
 	}
-	console.log(options)
-	moveTo(options[Math.floor(Math.random()*options.length)])
+	var chosenSq = ''
+	var hasUpRight = false
+	var hasUpOrRight = false
+	for(i=0;i<options.length;i++) {
+		var sq = i
+		var up = (Math.floor(sq/10)) > loc2[1]
+		var right = (sq % 10) > loc2[1]
+		if(up && right) {
+			chosenSq = sq
+			hasUpRight = true
+		}
+	}
+	if(!hasUpRight) {
+		for(i=0;i<options.length;i++) {
+			var sq = i
+			var up = (Math.floor(sq/10)) > loc2[1]
+			var right = (sq % 10) > loc2[1]
+			if(up || right) {
+				chosenSq = sq
+				hasUpOrRight = true
+			}
+		}
+		if(!hasUpOrRight) chosenSq = options[0]
+	}
+	moveTo(chosenSq)
 }		       
 function highlightMoveable(x,y,vector) {
 	var left = x-vector[0]
