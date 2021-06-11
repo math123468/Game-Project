@@ -152,7 +152,7 @@ function botMove() {
 	for(i=0;i<options.length;i++) {
 		var sq = i
 		var up = (Math.floor(sq/10)) > loc2[1]
-		var right = (sq % 10) > loc2[1]
+		var right = (sq % 10) > loc2[0]
 		if(up && right) {
 			chosenSq = sq
 			hasUpRight = true
@@ -162,7 +162,7 @@ function botMove() {
 		for(i=0;i<options.length;i++) {
 			var sq = i
 			var up = (Math.floor(sq/10)) > loc2[1]
-			var right = (sq % 10) > loc2[1]
+			var right = (sq % 10) > loc2[0]
 			if(up || right) {
 				chosenSq = sq
 				hasUpOrRight = true
