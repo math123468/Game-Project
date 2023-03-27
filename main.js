@@ -5,7 +5,7 @@ var player = 2
 var vector = [0,0]
 var gamePlaying = false
 var readyForMove = false
-var problems = [['How many columns are in a 3x5 matrix?','How many rows are in a 3x5 matrix?','What are the dimensions of [4 5 5;2 1 9]?',
+var problems =  [['How many columns are in a 3x5 matrix?','How many rows are in a 3x5 matrix?','What are the dimensions of [4 5 5;2 1 9]?',
 		 'Are [3;5;1] and [-6;-10;2] linearly independent? y/n','Are [3;5;1] and [-6;-10;-2] linearly independent? y/n','Is [4 1 9 6 2;0 3 8 11 2;0 0 9 9 1] in echelon form? y/n',
 		'Is [4 1 9 6 2;0 3 8 11 2;0 1 9 9 1] in echelon form? y/n','Is [1 0 0 0 4;0 1 0 0 1;0 0 1 0 3;0 0 0 1 5] in rref? y/n',
 		'Enter the coefficient matrix for the system\nx1 + x2 + 3x3 = 5\n3x1 + 2x2 - x3 = 1\n-2x1 - x2 + 2x3 = -3',
